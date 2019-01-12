@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>TIKSN.Habitica</RootNamespace>
+    <AssemblyName>TIKSN.Habitica</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

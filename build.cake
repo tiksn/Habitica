@@ -61,6 +61,16 @@ Task("Test")
   .IsDependentOn("Build")
   .Does(() =>
 {
+    XUnit2(new [] {
+    buildArtifactsDir.CombineWithFilePath("TIKSN.Habitica.Tests.dll")
+     },
+     new XUnit2Settings {
+        Parallelism = ParallelismOption.All,
+        HtmlReport = true,
+        XmlReport = true,
+        NoAppDomain = true,
+        OutputDirectory = CreateTrashSubDirectory("test-results")
+    });
 });
 
 Task("Build")

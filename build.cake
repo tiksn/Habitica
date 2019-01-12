@@ -4,7 +4,6 @@
 #addin nuget:?package=Newtonsoft.Json&version=9.0.1
 #addin nuget:?package=NuGet.Core&version=2.14.0
 #addin nuget:?package=NuGet.Versioning&version=4.6.2
-#tool "nuget:?package=xunit.runner.console"
 #addin nuget:?package=Cake.Git
 #addin nuget:?package=TIKSN-Cake&loaddependencies=true
 
@@ -44,8 +43,8 @@ Task("Publish")
 Task("Pack")
   .Description("Pack NuGet package.")
   .IsDependentOn("Build")
+  .IsDependentOn("Test")
   .IsDependentOn("EstimateNextVersion")
-  //.IsDependentOn("Test")
   .Does(() =>
 {
   var nuGetPackSettings = new NuGetPackSettings {
@@ -61,16 +60,13 @@ Task("Test")
   .IsDependentOn("Build")
   .Does(() =>
 {
-    XUnit2(new [] {
-    buildArtifactsDir.CombineWithFilePath("TIKSN.Habitica.Tests.dll")
-     },
-     new XUnit2Settings {
-        Parallelism = ParallelismOption.All,
-        HtmlReport = true,
-        XmlReport = true,
-        NoAppDomain = true,
-        OutputDirectory = CreateTrashSubDirectory("test-results")
-    });
+    DotNetCoreTest(
+        "Habitica.Tests/Habitica.Tests.csproj",
+        new DotNetCoreTestSettings()
+        {
+            Configuration = "Release",
+            NoBuild = false
+        });
 });
 
 Task("Build")

@@ -4,7 +4,7 @@ using System;
 
 namespace TIKSN.Habitica
 {
-    public class RestClientFactory
+    public class RestClientFactory : IRestClientFactory
     {
         private readonly IOptions<ClientOptions> _options;
         private readonly IApplicationSettings _applicationSettings;

@@ -8,6 +8,7 @@ namespace TIKSN.Habitica
         {
             services.AddSingleton<IRestClientFactory, RestClientFactory>();
             services.AddSingleton<IApplicationSettings, ApplicationSettings>();
+            services.AddSingleton<IHabiticaClient, HabiticaClient>();
         }
     }
 }

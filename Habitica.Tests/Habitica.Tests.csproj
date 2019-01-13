@@ -8,6 +8,8 @@
     <RootNamespace>TIKSN.Habitica.Tests</RootNamespace>
 
     <AssemblyName>TIKSN.Habitica.Tests</AssemblyName>
+
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

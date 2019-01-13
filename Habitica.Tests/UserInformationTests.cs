@@ -20,6 +20,7 @@ namespace TIKSN.Habitica.Tests
         public async Task GetUserProfile()
         {
             var habiticaClient = _serviceProviderFixture.ServiceProvider.GetRequiredService<IHabiticaClient>();
+            await habiticaClient.GetUserProfileAsync(default);
         }
     }
 }

@@ -21,6 +21,17 @@ namespace TIKSN.Habitica
             var restClient = _restClientFactory.Create();
 
             var response = await restClient.ExecuteTaskAsync(request, cancellationToken);
+
+            EnsureSuccess(response);
+        }
+
+        private void EnsureSuccess(IRestResponse response)
+        {
+            if (response.ErrorException != null)
+                throw response.ErrorException;
+
+            if (!response.IsSuccessful)
+                throw new InvalidOperationException("Request failed.");
         }
     }
 }

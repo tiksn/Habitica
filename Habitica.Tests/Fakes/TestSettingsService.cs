@@ -16,7 +16,7 @@ namespace TIKSN.Habitica.Tests.Fakes
 
         public T GetLocalSetting<T>(string name, T defaultValue)
         {
-            throw new NotImplementedException();
+            return _configurationRoot.GetValue<T>(name);
         }
 
         public T GetRoamingSetting<T>(string name, T defaultValue)

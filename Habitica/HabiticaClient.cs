@@ -2,6 +2,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using TIKSN.Habitica.Models;
 
 namespace TIKSN.Habitica
 {
@@ -14,15 +15,17 @@ namespace TIKSN.Habitica
             _restClientFactory = restClientFactory ?? throw new ArgumentNullException(nameof(restClientFactory));
         }
 
-        public async Task GetUserProfileAsync(CancellationToken cancellationToken)
+        public async Task<UserModel> GetUserProfileAsync(CancellationToken cancellationToken)
         {
             var request = new RestRequest("user?userFields=achievements,auth,profile,stats", Method.GET);
 
             var restClient = _restClientFactory.Create();
 
-            var response = await restClient.ExecuteTaskAsync(request, cancellationToken);
+            var response = await restClient.ExecuteTaskAsync<UserModel>(request, cancellationToken);
 
             EnsureSuccess(response);
+
+            return response.Data;
         }
 
         private void EnsureSuccess(IRestResponse response)

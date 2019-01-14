@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using FluentAssertions;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
 using TIKSN.Habitica.Tests.Fixture;
@@ -20,7 +21,13 @@ namespace TIKSN.Habitica.Tests
         public async Task GetUserProfile()
         {
             var habiticaClient = _serviceProviderFixture.ServiceProvider.GetRequiredService<IHabiticaClient>();
-            await habiticaClient.GetUserProfileAsync(default);
+            var userModel = await habiticaClient.GetUserProfileAsync(default);
+
+            userModel.Data.Auth.Local.Username.Should().NotBeNull();
+            userModel.Data.Auth.Local.Username.Should().NotBeEmpty();
+
+            userModel.Data.Profile.Name.Should().NotBeNull();
+            userModel.Data.Profile.Name.Should().NotBeEmpty();
         }
     }
 }

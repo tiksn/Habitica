@@ -10,8 +10,8 @@ namespace TIKSN.Habitica.Models
         [JsonProperty("data")]
         public UserData Data { get; set; }
 
-        [JsonProperty("notifications")]
-        public object[] Notifications { get; set; }
+        //[JsonProperty("notifications")]
+        //public object[] Notifications { get; set; }
 
         [JsonProperty("appVersion")]
         public string AppVersion { get; set; }

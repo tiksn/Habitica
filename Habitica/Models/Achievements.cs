@@ -7,8 +7,8 @@ namespace TIKSN.Habitica.Models
         [JsonProperty("ultimateGearSets")]
         public UltimateGearSets UltimateGearSets { get; set; }
 
-        [JsonProperty("challenges")]
-        public object[] Challenges { get; set; }
+        //[JsonProperty("challenges")]
+        //public object[] Challenges { get; set; }
 
         [JsonProperty("perfect")]
         public long Perfect { get; set; }

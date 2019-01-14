@@ -2,7 +2,7 @@
 
 namespace TIKSN.Habitica.Models
 {
-    public partial class Profile
+    public class Profile
     {
         [JsonProperty("name")]
         public string Name { get; set; }

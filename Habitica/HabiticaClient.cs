@@ -16,7 +16,7 @@ namespace TIKSN.Habitica
 
         public async Task GetUserProfileAsync(CancellationToken cancellationToken)
         {
-            var request = new RestRequest("user", Method.GET);
+            var request = new RestRequest("user?userFields=achievements,auth,profile,stats", Method.GET);
 
             var restClient = _restClientFactory.Create();
 

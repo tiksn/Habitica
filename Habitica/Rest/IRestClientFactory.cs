@@ -1,6 +1,6 @@
 ﻿using RestSharp;
 
-namespace TIKSN.Habitica
+namespace TIKSN.Habitica.Rest
 {
     public interface IRestClientFactory
     {

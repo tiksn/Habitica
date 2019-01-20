@@ -2,7 +2,7 @@
 using RestSharp;
 using System;
 
-namespace TIKSN.Habitica
+namespace TIKSN.Habitica.Rest
 {
     public class RestClientFactory : IRestClientFactory
     {

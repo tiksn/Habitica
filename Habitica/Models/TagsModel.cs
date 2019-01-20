@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace TIKSN.Habitica.Models
 {
@@ -8,7 +9,7 @@ namespace TIKSN.Habitica.Models
         public string AppVersion { get; set; }
 
         [JsonProperty("data")]
-        public TagData[] Data { get; set; }
+        public List<TagData> Data { get; set; }
 
         [JsonProperty("success")]
         public bool Success { get; set; }

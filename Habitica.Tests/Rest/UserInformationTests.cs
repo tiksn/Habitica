@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
+using TIKSN.Habitica.Rest;
 using TIKSN.Habitica.Tests.Fixture;
 using Xunit;
 

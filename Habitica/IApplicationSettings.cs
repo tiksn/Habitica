@@ -2,12 +2,9 @@
 {
     public interface IApplicationSettings
     {
-        string UserID { get; set; }
-
         string ApiKey { get; set; }
-
-        bool HasUserID { get; }
-
         bool HasApiKey { get; }
+        bool HasUserID { get; }
+        string UserID { get; set; }
     }
 }

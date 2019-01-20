@@ -23,18 +23,21 @@ namespace TIKSN.Habitica.Rest
 
             var response = await restClient.ExecuteTaskAsync<UserModel>(request, cancellationToken);
 
-            EnsureSuccess(response);
+            EnsureSuccess(response, response.Data);
 
             return response.Data;
         }
 
-        private void EnsureSuccess(IRestResponse response)
+        private void EnsureSuccess(IRestResponse response, ISuccess success)
         {
             if (response.ErrorException != null)
                 throw response.ErrorException;
 
             if (!response.IsSuccessful)
                 throw new InvalidOperationException("Request failed.");
+
+            if (!success.Success)
+                throw new InvalidOperationException("Request's response was not successful.");
         }
     }
 }

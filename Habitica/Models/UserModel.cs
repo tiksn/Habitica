@@ -2,7 +2,7 @@
 
 namespace TIKSN.Habitica.Models
 {
-    public class UserModel
+    public class UserModel : ISuccess
     {
         [JsonProperty("appVersion")]
         public string AppVersion { get; set; }

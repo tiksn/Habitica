@@ -6,8 +6,8 @@ namespace TIKSN.Habitica
     {
         string ApiKey { get; set; }
         bool HasApiKey { get; }
-        bool HasImportantTag { get; set; }
-        bool HasLessImportantTag { get; set; }
+        bool HasImportantTag { get; }
+        bool HasLessImportantTag { get; }
         bool HasLessUrgentTag { get; }
         bool HasUrgentTag { get; }
         bool HasUserID { get; }

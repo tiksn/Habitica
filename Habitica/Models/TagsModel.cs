@@ -2,7 +2,7 @@
 
 namespace TIKSN.Habitica.Models
 {
-    public class Tags : ISuccess
+    public class TagsModel : ISuccess
     {
         [JsonProperty("appVersion")]
         public string AppVersion { get; set; }

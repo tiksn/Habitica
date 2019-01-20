@@ -6,6 +6,8 @@ namespace TIKSN.Habitica.Rest
 {
     public interface IHabiticaClient
     {
+        Task<TagsModel> GetTagsAsync(CancellationToken cancellationToken);
+
         Task<UserModel> GetUserProfileAsync(CancellationToken cancellationToken);
     }
 }

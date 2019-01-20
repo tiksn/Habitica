@@ -15,6 +15,20 @@ namespace TIKSN.Habitica.Rest
             _restClientFactory = restClientFactory ?? throw new ArgumentNullException(nameof(restClientFactory));
         }
 
+        public async Task<TagsModel> CreateTagAsync(string name, CancellationToken cancellationToken)
+        {
+            var request = new RestRequest("tags", Method.POST)
+                .AddJsonBody(new TagCreationModel { Name = name });
+
+            var restClient = _restClientFactory.Create();
+
+            var response = await restClient.ExecuteTaskAsync<TagsModel>(request, cancellationToken);
+
+            EnsureSuccess(response, response.Data);
+
+            return response.Data;
+        }
+
         public async Task<TagsModel> GetTagsAsync(CancellationToken cancellationToken)
         {
             var request = new RestRequest("tags", Method.GET);

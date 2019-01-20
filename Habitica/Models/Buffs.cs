@@ -4,8 +4,8 @@ namespace TIKSN.Habitica.Models
 {
     public class Buffs
     {
-        [JsonProperty("str")]
-        public long Str { get; set; }
+        [JsonProperty("con")]
+        public long Con { get; set; }
 
         [JsonProperty("int")]
         public long Int { get; set; }
@@ -13,14 +13,11 @@ namespace TIKSN.Habitica.Models
         [JsonProperty("per")]
         public long Per { get; set; }
 
-        [JsonProperty("con")]
-        public long Con { get; set; }
+        [JsonProperty("seafoam")]
+        public bool Seafoam { get; set; }
 
-        [JsonProperty("stealth")]
-        public long Stealth { get; set; }
-
-        [JsonProperty("streaks")]
-        public bool Streaks { get; set; }
+        [JsonProperty("shinySeed")]
+        public bool ShinySeed { get; set; }
 
         [JsonProperty("snowball")]
         public bool Snowball { get; set; }
@@ -28,10 +25,13 @@ namespace TIKSN.Habitica.Models
         [JsonProperty("spookySparkles")]
         public bool SpookySparkles { get; set; }
 
-        [JsonProperty("shinySeed")]
-        public bool ShinySeed { get; set; }
+        [JsonProperty("stealth")]
+        public long Stealth { get; set; }
 
-        [JsonProperty("seafoam")]
-        public bool Seafoam { get; set; }
+        [JsonProperty("str")]
+        public long Str { get; set; }
+
+        [JsonProperty("streaks")]
+        public bool Streaks { get; set; }
     }
 }

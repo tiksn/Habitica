@@ -4,6 +4,9 @@ namespace TIKSN.Habitica.Models
 {
     public class Training
     {
+        [JsonProperty("con")]
+        public long Con { get; set; }
+
         [JsonProperty("int")]
         public long Int { get; set; }
 
@@ -12,8 +15,5 @@ namespace TIKSN.Habitica.Models
 
         [JsonProperty("str")]
         public long Str { get; set; }
-
-        [JsonProperty("con")]
-        public long Con { get; set; }
     }
 }

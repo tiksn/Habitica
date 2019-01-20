@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using TIKSN.Habitica.Rest;
 
 namespace TIKSN.Habitica
 {

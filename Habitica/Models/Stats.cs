@@ -7,14 +7,11 @@ namespace TIKSN.Habitica.Models
         [JsonProperty("buffs")]
         public Buffs Buffs { get; set; }
 
-        [JsonProperty("training")]
-        public Training Training { get; set; }
+        [JsonProperty("class")]
+        public string Class { get; set; }
 
-        [JsonProperty("hp")]
-        public long Hp { get; set; }
-
-        [JsonProperty("mp")]
-        public long Mp { get; set; }
+        [JsonProperty("con")]
+        public long Con { get; set; }
 
         [JsonProperty("exp")]
         public long Exp { get; set; }
@@ -22,11 +19,20 @@ namespace TIKSN.Habitica.Models
         [JsonProperty("gp")]
         public long Gp { get; set; }
 
+        [JsonProperty("hp")]
+        public long Hp { get; set; }
+
+        [JsonProperty("int")]
+        public long Int { get; set; }
+
         [JsonProperty("lvl")]
         public long Lvl { get; set; }
 
-        [JsonProperty("class")]
-        public string Class { get; set; }
+        [JsonProperty("mp")]
+        public long Mp { get; set; }
+
+        [JsonProperty("per")]
+        public long Per { get; set; }
 
         [JsonProperty("points")]
         public long Points { get; set; }
@@ -34,13 +40,7 @@ namespace TIKSN.Habitica.Models
         [JsonProperty("str")]
         public long Str { get; set; }
 
-        [JsonProperty("con")]
-        public long Con { get; set; }
-
-        [JsonProperty("int")]
-        public long Int { get; set; }
-
-        [JsonProperty("per")]
-        public long Per { get; set; }
+        [JsonProperty("training")]
+        public Training Training { get; set; }
     }
 }

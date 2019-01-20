@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using TIKSN.Habitica.Models;
 
-namespace TIKSN.Habitica
+namespace TIKSN.Habitica.Rest
 {
     public class HabiticaClient : IHabiticaClient
     {

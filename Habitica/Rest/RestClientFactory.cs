@@ -2,12 +2,12 @@
 using RestSharp;
 using System;
 
-namespace TIKSN.Habitica
+namespace TIKSN.Habitica.Rest
 {
     public class RestClientFactory : IRestClientFactory
     {
-        private readonly IOptions<ClientOptions> _options;
         private readonly IApplicationSettings _applicationSettings;
+        private readonly IOptions<ClientOptions> _options;
 
         public RestClientFactory(IOptions<ClientOptions> options, IApplicationSettings applicationSettings)
         {

@@ -13,5 +13,7 @@ namespace TIKSN.Habitica.Rest
         Task<UserModel> GetUserProfileAsync(CancellationToken cancellationToken);
 
         Task<UserTaskModel> GetUserTasksAsync(CancellationToken cancellationToken);
+
+        Task<UserTaskModel> GetUserToDosAsync(CancellationToken cancellationToken);
     }
 }

@@ -26,6 +26,18 @@ namespace TIKSN.Habitica.Tests.Rest
             var allUserTasks = await habiticaClient.GetUserTasksAsync(default);
 
             allUserTasks.Data.Should().NotBeEmpty();
+            allUserTasks.Data[0].Id.Should().NotBeEmpty();
+        }
+
+        [Fact]
+        public async Task GetUserTodos()
+        {
+            var habiticaClient = _serviceProviderFixture.ServiceProvider.GetRequiredService<IHabiticaClient>();
+
+            var allUserTasks = await habiticaClient.GetUserToDosAsync(default);
+
+            allUserTasks.Data.Should().NotBeEmpty();
+            allUserTasks.Data[0].Id.Should().NotBeEmpty();
         }
     }
 }

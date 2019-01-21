@@ -22,8 +22,5 @@ namespace TIKSN.Habitica.Models
 
         [JsonProperty("stats")]
         public Stats Stats { get; set; }
-
-        //[JsonProperty("notifications")]
-        //public object[] Notifications { get; set; }
     }
 }

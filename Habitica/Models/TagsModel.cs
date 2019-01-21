@@ -1,11 +1,12 @@
 ﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace TIKSN.Habitica.Models
 {
-    public class UserModel : ISuccess
+    public class TagsModel : ISuccess
     {
         [JsonProperty("data")]
-        public UserData Data { get; set; }
+        public List<TagData> Data { get; set; }
 
         [JsonProperty("success")]
         public bool Success { get; set; }

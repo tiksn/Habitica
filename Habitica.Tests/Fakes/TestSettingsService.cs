@@ -46,7 +46,7 @@ namespace TIKSN.Habitica.Tests.Fakes
 
         public void SetLocalSetting<T>(string name, T value)
         {
-            throw new NotImplementedException();
+            _configurationRoot[name] = value.ToString();
         }
 
         public void SetRoamingSetting<T>(string name, T value)

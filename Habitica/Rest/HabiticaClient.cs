@@ -55,6 +55,32 @@ namespace TIKSN.Habitica.Rest
             return response.Data;
         }
 
+        public async Task<UserTaskModel> GetUserTasksAsync(CancellationToken cancellationToken)
+        {
+            var request = new RestRequest("tasks/user", Method.GET);
+
+            var restClient = _restClientFactory.Create();
+
+            var response = await restClient.ExecuteTaskAsync<UserTaskModel>(request, cancellationToken);
+
+            EnsureSuccess(response, response.Data);
+
+            return response.Data;
+        }
+
+        public async Task<UserTaskModel> GetUserToDosAsync(CancellationToken cancellationToken)
+        {
+            var request = new RestRequest("tasks/user?type=todos", Method.GET);
+
+            var restClient = _restClientFactory.Create();
+
+            var response = await restClient.ExecuteTaskAsync<UserTaskModel>(request, cancellationToken);
+
+            EnsureSuccess(response, response.Data);
+
+            return response.Data;
+        }
+
         private void EnsureSuccess(IRestResponse response, ISuccess success)
         {
             if (response.ErrorException != null)

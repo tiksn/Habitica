@@ -12,6 +12,7 @@ namespace TIKSN.Habitica
             services.AddSingleton<IApplicationSettings, ApplicationSettings>();
             services.AddSingleton<IHabiticaClient, HabiticaClient>();
             services.AddSingleton<ITagInitializer, TagInitializer>();
+            services.AddSingleton<IMatrixAndBacklogService, MatrixAndBacklogService>();
         }
     }
 }

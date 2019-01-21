@@ -18,7 +18,7 @@ namespace TIKSN.Habitica.Rest
         public async Task<TagsModel> CreateTagAsync(string name, CancellationToken cancellationToken)
         {
             var request = new RestRequest("tags", Method.POST)
-                .AddJsonBody(new TagCreationModel { Name = name });
+                .AddJsonBody(new TagCreationModel { name = name });
 
             var restClient = _restClientFactory.Create();
 

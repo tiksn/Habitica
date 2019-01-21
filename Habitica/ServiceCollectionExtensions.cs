@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using TIKSN.Habitica.EisenhowerMatrix;
 using TIKSN.Habitica.Rest;
 
 namespace TIKSN.Habitica
@@ -10,6 +11,7 @@ namespace TIKSN.Habitica
             services.AddSingleton<IRestClientFactory, RestClientFactory>();
             services.AddSingleton<IApplicationSettings, ApplicationSettings>();
             services.AddSingleton<IHabiticaClient, HabiticaClient>();
+            services.AddSingleton<ITagInitializer, TagInitializer>();
         }
     }
 }

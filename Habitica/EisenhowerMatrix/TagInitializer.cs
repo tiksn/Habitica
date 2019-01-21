@@ -7,7 +7,7 @@ using TIKSN.Habitica.Rest;
 
 namespace TIKSN.Habitica.EisenhowerMatrix
 {
-    public class TagInitializer
+    public class TagInitializer : ITagInitializer
     {
         private readonly IApplicationSettings _applicationSettings;
         private readonly IHabiticaClient _habiticaClient;

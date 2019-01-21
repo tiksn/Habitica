@@ -5,8 +5,14 @@ namespace TIKSN.Habitica.EisenhowerMatrix.Models
 {
     public class MatrixAndBacklog
     {
-        public List<TaskData> Backlog { get; set; }
+        public MatrixAndBacklog()
+        {
+            Backlog = new List<TaskData>();
+            Matrix = new Matrix();
+        }
 
-        public Matrix Matrix { get; set; }
+        public List<TaskData> Backlog { get; }
+
+        public Matrix Matrix { get; }
     }
 }

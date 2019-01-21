@@ -5,12 +5,20 @@ namespace TIKSN.Habitica.EisenhowerMatrix.Models
 {
     public class Matrix
     {
-        public List<TaskData> DelegateQuadrant { get; set; }
+        public Matrix()
+        {
+            DoFirstQuadrant = new List<TaskData>();
+            ScheduleQuadrant = new List<TaskData>();
+            DelegateQuadrant = new List<TaskData>();
+            DoNotDoQuadrant = new List<TaskData>();
+        }
 
-        public List<TaskData> DoFirstQuadrant { get; set; }
+        public List<TaskData> DelegateQuadrant { get; }
 
-        public List<TaskData> DoNotDoQuadrant { get; set; }
+        public List<TaskData> DoFirstQuadrant { get; }
 
-        public List<TaskData> ScheduleQuadrant { get; set; }
+        public List<TaskData> DoNotDoQuadrant { get; }
+
+        public List<TaskData> ScheduleQuadrant { get; }
     }
 }

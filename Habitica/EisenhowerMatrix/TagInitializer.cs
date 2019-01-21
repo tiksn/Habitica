@@ -20,6 +20,20 @@ namespace TIKSN.Habitica.EisenhowerMatrix
 
         public async Task InitializeDefaultsAsync(CancellationToken cancellationToken)
         {
+            var tags = await _habiticaClient.GetTagsAsync(cancellationToken);
+            TagData tag;
+
+            (tags, tag) = await CreateOrGetTag(tags, "Important", cancellationToken);
+            _applicationSettings.ImportantTag = tag.Id;
+
+            (tags, tag) = await CreateOrGetTag(tags, "Urgent", cancellationToken);
+            _applicationSettings.UrgentTag = tag.Id;
+
+            (tags, tag) = await CreateOrGetTag(tags, "Less Important", cancellationToken);
+            _applicationSettings.LessImportantTag = tag.Id;
+
+            (tags, tag) = await CreateOrGetTag(tags, "Less Urgent", cancellationToken);
+            _applicationSettings.LessUrgentTag = tag.Id;
         }
 
         private async Task<(TagsModel, TagData)> CreateOrGetTag(TagsModel tags, string name, CancellationToken cancellationToken)

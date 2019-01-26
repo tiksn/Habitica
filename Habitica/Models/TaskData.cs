@@ -48,8 +48,8 @@ namespace TIKSN.Habitica.Models
         [JsonProperty("isDue", NullValueHandling = NullValueHandling.Ignore)]
         public bool? IsDue { get; set; }
 
-        [JsonProperty("nextDue", NullValueHandling = NullValueHandling.Ignore)]
-        public List<DateTimeOffset> NextDue { get; set; }
+        //[JsonProperty("nextDue", NullValueHandling = NullValueHandling.Ignore)]
+        //public List<DateTimeOffset> NextDue { get; set; }
 
         [JsonProperty("notes")]
         public string Notes { get; set; }

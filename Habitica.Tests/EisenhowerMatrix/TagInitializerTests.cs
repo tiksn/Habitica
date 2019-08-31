@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
 using TIKSN.Habitica.EisenhowerMatrix;
+using TIKSN.Habitica.Settings;
 using TIKSN.Habitica.Tests.Fixture;
 using Xunit;
 
@@ -22,14 +23,13 @@ namespace TIKSN.Habitica.Tests.EisenhowerMatrix
         public async Task InitializeDefaults()
         {
             var tagInitializer = _serviceProviderFixture.ServiceProvider.GetRequiredService<ITagInitializer>();
-            var applicationSettings = _serviceProviderFixture.ServiceProvider.GetRequiredService<IApplicationSettings>();
-
+            var tagSettings = _serviceProviderFixture.ServiceProvider.GetRequiredService<ITagSettings>();
             await tagInitializer.InitializeDefaultsAsync(default);
 
-            applicationSettings.HasImportantTag.Should().BeTrue();
-            applicationSettings.HasUrgentTag.Should().BeTrue();
-            applicationSettings.HasLessImportantTag.Should().BeTrue();
-            applicationSettings.HasLessUrgentTag.Should().BeTrue();
+            tagSettings.HasImportantTag.Should().BeTrue();
+            tagSettings.HasUrgentTag.Should().BeTrue();
+            tagSettings.HasLessImportantTag.Should().BeTrue();
+            tagSettings.HasLessUrgentTag.Should().BeTrue();
         }
     }
 }

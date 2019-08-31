@@ -9,6 +9,7 @@
     <description>Package Description</description>
     <dependencies>
       <group targetFramework=".NETStandard2.0">
+        <dependency id="RestSharp" version="106.6.10" exclude="Build,Analyzers" />
         <dependency id="TIKSN-Framework" version="3.2.0-alpha.13" exclude="Build,Analyzers" />
       </group>
     </dependencies>

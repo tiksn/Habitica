@@ -1,9 +1,9 @@
 ﻿using System;
 using TIKSN.Settings;
 
-namespace TIKSN.Habitica
+namespace TIKSN.Habitica.Settings
 {
-    public class ApplicationSettings : IApplicationSettings
+    public class ApplicationSettings : ICredentialSettings, ITagSettings
     {
         private readonly ISettingsService _settingsService;
 

@@ -4,18 +4,19 @@ using System.Threading;
 using System.Threading.Tasks;
 using TIKSN.Habitica.Models;
 using TIKSN.Habitica.Rest;
+using TIKSN.Habitica.Settings;
 
 namespace TIKSN.Habitica.EisenhowerMatrix
 {
     public class TagInitializer : ITagInitializer
     {
-        private readonly IApplicationSettings _applicationSettings;
         private readonly IHabiticaClient _habiticaClient;
+        private readonly ITagSettings _tagSettings;
 
-        public TagInitializer(IHabiticaClient habiticaClient, IApplicationSettings applicationSettings)
+        public TagInitializer(IHabiticaClient habiticaClient, ITagSettings tagSettings)
         {
             _habiticaClient = habiticaClient ?? throw new ArgumentNullException(nameof(habiticaClient));
-            _applicationSettings = applicationSettings ?? throw new ArgumentNullException(nameof(applicationSettings));
+            _tagSettings = tagSettings ?? throw new ArgumentNullException(nameof(tagSettings));
         }
 
         public async Task InitializeDefaultsAsync(CancellationToken cancellationToken)
@@ -24,16 +25,16 @@ namespace TIKSN.Habitica.EisenhowerMatrix
             TagData tag;
 
             (tags, tag) = await CreateOrGetTag(tags, "Important", cancellationToken);
-            _applicationSettings.ImportantTag = tag.Id;
+            _tagSettings.ImportantTag = tag.Id;
 
             (tags, tag) = await CreateOrGetTag(tags, "Urgent", cancellationToken);
-            _applicationSettings.UrgentTag = tag.Id;
+            _tagSettings.UrgentTag = tag.Id;
 
             (tags, tag) = await CreateOrGetTag(tags, "Less Important", cancellationToken);
-            _applicationSettings.LessImportantTag = tag.Id;
+            _tagSettings.LessImportantTag = tag.Id;
 
             (tags, tag) = await CreateOrGetTag(tags, "Less Urgent", cancellationToken);
-            _applicationSettings.LessUrgentTag = tag.Id;
+            _tagSettings.LessUrgentTag = tag.Id;
         }
 
         private async Task<(TagsModel, TagData)> CreateOrGetTag(TagsModel tags, string name, CancellationToken cancellationToken)

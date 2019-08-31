@@ -1,25 +1,26 @@
 ﻿using Microsoft.Extensions.Options;
 using RestSharp;
 using System;
+using TIKSN.Habitica.Settings;
 
 namespace TIKSN.Habitica.Rest
 {
     public class RestClientFactory : IRestClientFactory
     {
-        private readonly IApplicationSettings _applicationSettings;
+        private readonly ICredentialSettings _credentialSettings;
         private readonly IOptions<ClientOptions> _options;
 
-        public RestClientFactory(IOptions<ClientOptions> options, IApplicationSettings applicationSettings)
+        public RestClientFactory(IOptions<ClientOptions> options, ICredentialSettings credentialSettings)
         {
             _options = options ?? throw new ArgumentNullException(nameof(options));
-            _applicationSettings = applicationSettings ?? throw new ArgumentNullException(nameof(applicationSettings));
+            _credentialSettings = credentialSettings ?? throw new ArgumentNullException(nameof(credentialSettings));
         }
 
         public RestClient Create()
         {
             var client = new RestClient(_options.Value.BaseAddress);
-            client.AddDefaultHeader("x-api-user", _applicationSettings.UserID);
-            client.AddDefaultHeader("x-api-key", _applicationSettings.ApiKey);
+            client.AddDefaultHeader("x-api-user", _credentialSettings.UserID);
+            client.AddDefaultHeader("x-api-key", _credentialSettings.ApiKey);
 
             return client;
         }

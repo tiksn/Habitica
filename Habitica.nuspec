@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>TIKSN-Habitica</id>
@@ -13,4 +13,7 @@
       </group>
     </dependencies>
   </metadata>
+  <files>
+    <file src="TIKSN.Habitica.dll" target="lib\netstandard2.0" />
+  </files>
 </package>

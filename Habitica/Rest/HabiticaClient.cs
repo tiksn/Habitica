@@ -42,6 +42,11 @@ namespace TIKSN.Habitica.Rest
             return response.Data;
         }
 
+        public Task<UserTaskModel> GetUserCompletedToDosAsync(CancellationToken cancellationToken)
+        {
+            return GetUserTasksAsync("completedTodos", cancellationToken);
+        }
+
         public async Task<UserModel> GetUserProfileAsync(CancellationToken cancellationToken)
         {
             var request = new RestRequest("user?userFields=achievements,auth,profile,stats", Method.GET);
@@ -68,17 +73,9 @@ namespace TIKSN.Habitica.Rest
             return response.Data;
         }
 
-        public async Task<UserTaskModel> GetUserToDosAsync(CancellationToken cancellationToken)
+        public Task<UserTaskModel> GetUserToDosAsync(CancellationToken cancellationToken)
         {
-            var request = new RestRequest("tasks/user?type=todos", Method.GET);
-
-            var restClient = _restClientFactory.Create();
-
-            var response = await restClient.ExecuteTaskAsync<UserTaskModel>(request, cancellationToken);
-
-            EnsureSuccess(response, response.Data);
-
-            return response.Data;
+            return GetUserTasksAsync("todos", cancellationToken);
         }
 
         private void EnsureSuccess(IRestResponse response, ISuccess success)
@@ -91,6 +88,19 @@ namespace TIKSN.Habitica.Rest
 
             if (!success.Success)
                 throw new InvalidOperationException("Request's response was not successful.");
+        }
+
+        private async Task<UserTaskModel> GetUserTasksAsync(string type, CancellationToken cancellationToken)
+        {
+            var request = new RestRequest($"tasks/user?type={type}", Method.GET);
+
+            var restClient = _restClientFactory.Create();
+
+            var response = await restClient.ExecuteTaskAsync<UserTaskModel>(request, cancellationToken);
+
+            EnsureSuccess(response, response.Data);
+
+            return response.Data;
         }
     }
 }

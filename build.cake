@@ -79,7 +79,7 @@ Task("Build")
   MSBuild(solution, configurator =>
     configurator.SetConfiguration("Release")
         .SetVerbosity(Verbosity.Minimal)
-        .UseToolVersion(MSBuildToolVersion.VS2017)
+        .UseToolVersion(MSBuildToolVersion.VS2019)
         .SetMSBuildPlatform(MSBuildPlatform.x64)
         .SetPlatformTarget(PlatformTarget.MSIL)
         .WithProperty("OutDir", buildArtifactsDir.FullPath)

@@ -10,14 +10,12 @@ namespace TIKSN.Habitica.EisenhowerMatrix
 {
     public class MatrixAndBacklogService : IMatrixAndBacklogService
     {
-        private readonly IApplicationSettings _applicationSettings;
         private readonly IHabiticaClient _habiticaClient;
         private readonly ITagSettings _tagSettings;
 
-        public MatrixAndBacklogService(IHabiticaClient habiticaClient, IApplicationSettings applicationSettings, ITagSettings tagSettings)
+        public MatrixAndBacklogService(IHabiticaClient habiticaClient, ITagSettings tagSettings)
         {
             _habiticaClient = habiticaClient ?? throw new ArgumentNullException(nameof(habiticaClient));
-            _applicationSettings = applicationSettings ?? throw new ArgumentNullException(nameof(applicationSettings));
             _tagSettings = tagSettings ?? throw new ArgumentNullException(nameof(tagSettings));
         }
 
@@ -42,8 +40,8 @@ namespace TIKSN.Habitica.EisenhowerMatrix
 
         private void AddToResult(MatrixAndBacklog result, TaskData todo, bool isImportant, bool isUrgent, bool isLessImportant, bool isLessUrgent)
         {
-            // because of transient network failures, it is possible that only one of necessary tags are set
-            // that kind of to-dos should remain in backlog
+            // because of transient network failures, it is possible that only one of necessary tags
+            // are set that kind of to-dos should remain in backlog
 
             var noAnomalies = (isImportant != isLessImportant) && (isUrgent != isLessUrgent);
 

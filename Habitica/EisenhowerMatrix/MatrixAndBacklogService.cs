@@ -12,11 +12,13 @@ namespace TIKSN.Habitica.EisenhowerMatrix
     {
         private readonly IApplicationSettings _applicationSettings;
         private readonly IHabiticaClient _habiticaClient;
+        private readonly ITagSettings _tagSettings;
 
-        public MatrixAndBacklogService(IHabiticaClient habiticaClient, IApplicationSettings applicationSettings)
+        public MatrixAndBacklogService(IHabiticaClient habiticaClient, IApplicationSettings applicationSettings, ITagSettings tagSettings)
         {
             _habiticaClient = habiticaClient ?? throw new ArgumentNullException(nameof(habiticaClient));
             _applicationSettings = applicationSettings ?? throw new ArgumentNullException(nameof(applicationSettings));
+            _tagSettings = tagSettings ?? throw new ArgumentNullException(nameof(tagSettings));
         }
 
         public async Task<MatrixAndBacklog> GetMatrixAndBacklogAsync(CancellationToken cancellationToken)
@@ -27,10 +29,10 @@ namespace TIKSN.Habitica.EisenhowerMatrix
 
             foreach (var todo in todos.Data)
             {
-                var isImportant = todo.Tags.Contains(_applicationSettings.ImportantTag);
-                var isUrgent = todo.Tags.Contains(_applicationSettings.UrgentTag);
-                var isLessImportant = todo.Tags.Contains(_applicationSettings.LessImportantTag);
-                var isLessUrgent = todo.Tags.Contains(_applicationSettings.LessUrgentTag);
+                var isImportant = todo.Tags.Contains(_tagSettings.ImportantTag);
+                var isUrgent = todo.Tags.Contains(_tagSettings.UrgentTag);
+                var isLessImportant = todo.Tags.Contains(_tagSettings.LessImportantTag);
+                var isLessUrgent = todo.Tags.Contains(_tagSettings.LessUrgentTag);
 
                 AddToResult(result, todo, isImportant, isUrgent, isLessImportant, isLessUrgent);
             }

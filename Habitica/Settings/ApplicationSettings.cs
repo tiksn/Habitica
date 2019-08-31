@@ -3,7 +3,7 @@ using TIKSN.Settings;
 
 namespace TIKSN.Habitica.Settings
 {
-    public class ApplicationSettings : IApplicationSettings, ITagSettings
+    public class ApplicationSettings : ICredentialSettings, ITagSettings
     {
         private readonly ISettingsService _settingsService;
 

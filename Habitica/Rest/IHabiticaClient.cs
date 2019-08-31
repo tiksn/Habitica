@@ -10,6 +10,8 @@ namespace TIKSN.Habitica.Rest
 
         Task<TagsModel> GetTagsAsync(CancellationToken cancellationToken);
 
+        Task<UserTaskModel> GetUserCompletedToDosAsync(CancellationToken cancellationToken);
+
         Task<UserModel> GetUserProfileAsync(CancellationToken cancellationToken);
 
         Task<UserTaskModel> GetUserTasksAsync(CancellationToken cancellationToken);

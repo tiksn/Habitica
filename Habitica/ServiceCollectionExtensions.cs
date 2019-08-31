@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using TIKSN.Habitica.EisenhowerMatrix;
 using TIKSN.Habitica.Rest;
+using TIKSN.Habitica.Settings;
 
 namespace TIKSN.Habitica
 {

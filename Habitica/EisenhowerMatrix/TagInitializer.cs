@@ -10,14 +10,12 @@ namespace TIKSN.Habitica.EisenhowerMatrix
 {
     public class TagInitializer : ITagInitializer
     {
-        private readonly IApplicationSettings _applicationSettings;
         private readonly IHabiticaClient _habiticaClient;
         private readonly ITagSettings _tagSettings;
 
-        public TagInitializer(IHabiticaClient habiticaClient, IApplicationSettings applicationSettings, ITagSettings tagSettings)
+        public TagInitializer(IHabiticaClient habiticaClient, ITagSettings tagSettings)
         {
             _habiticaClient = habiticaClient ?? throw new ArgumentNullException(nameof(habiticaClient));
-            _applicationSettings = applicationSettings ?? throw new ArgumentNullException(nameof(applicationSettings));
             _tagSettings = tagSettings ?? throw new ArgumentNullException(nameof(tagSettings));
         }
 

@@ -11,6 +11,7 @@ namespace TIKSN.Habitica
         {
             services.AddSingleton<IRestClientFactory, RestClientFactory>();
             services.AddSingleton<IApplicationSettings, ApplicationSettings>();
+            services.AddSingleton<ITagSettings, ApplicationSettings>();
             services.AddSingleton<IHabiticaClient, HabiticaClient>();
             services.AddSingleton<ITagInitializer, TagInitializer>();
             services.AddSingleton<IMatrixAndBacklogService, MatrixAndBacklogService>();

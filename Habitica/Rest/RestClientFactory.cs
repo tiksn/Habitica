@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using RestSharp;
 using System;
+using TIKSN.Habitica.Settings;
 
 namespace TIKSN.Habitica.Rest
 {

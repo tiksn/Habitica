@@ -9,12 +9,12 @@ namespace TIKSN.Habitica
     {
         public static void AddHabitica(this IServiceCollection services)
         {
-            services.AddSingleton<IRestClientFactory, RestClientFactory>();
-            services.AddSingleton<ICredentialSettings, ApplicationSettings>();
-            services.AddSingleton<ITagSettings, ApplicationSettings>();
-            services.AddSingleton<IHabiticaClient, HabiticaClient>();
-            services.AddSingleton<ITagInitializer, TagInitializer>();
-            services.AddSingleton<IMatrixAndBacklogService, MatrixAndBacklogService>();
+            services.AddScoped<IRestClientFactory, RestClientFactory>();
+            services.AddScoped<ICredentialSettings, ApplicationSettings>();
+            services.AddScoped<ITagSettings, ApplicationSettings>();
+            services.AddScoped<IHabiticaClient, HabiticaClient>();
+            services.AddScoped<ITagInitializer, TagInitializer>();
+            services.AddScoped<IMatrixAndBacklogService, MatrixAndBacklogService>();
         }
     }
 }

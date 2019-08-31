@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using TIKSN.Habitica.Models;
 using TIKSN.Habitica.Rest;
+using TIKSN.Habitica.Settings;
 
 namespace TIKSN.Habitica.EisenhowerMatrix
 {

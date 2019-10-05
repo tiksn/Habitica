@@ -5,6 +5,11 @@
     <RootNamespace>TIKSN.Habitica</RootNamespace>
     <AssemblyName>TIKSN.Habitica</AssemblyName>
     <LangVersion>latest</LangVersion>
+    <PackageId>TIKSN-Habitica</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>TIKSN</Authors>
+    <Product>TIKSN</Product>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>

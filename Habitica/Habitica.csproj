@@ -13,7 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="RestSharp" Version="107.1.1" />
+    <PackageReference Include="RestSharp" Version="107.1.2" />
     <PackageReference Include="TIKSN-Framework" Version="4.3.0" />
   </ItemGroup>
 

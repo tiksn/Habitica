@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <PackageReference Include="RestSharp" Version="108.0.3" />
-    <PackageReference Include="TIKSN-Framework" Version="4.3.2" />
+    <PackageReference Include="TIKSN-Framework" Version="4.3.3" />
   </ItemGroup>
 
 </Project>

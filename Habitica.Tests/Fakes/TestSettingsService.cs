@@ -1,7 +1,9 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using LanguageExt;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using TIKSN.Settings;
+using static LanguageExt.Prelude;
 
 namespace TIKSN.Habitica.Tests.Fakes
 {
@@ -19,7 +21,17 @@ namespace TIKSN.Habitica.Tests.Fakes
             return _configurationRoot.GetValue<T>(name);
         }
 
+        public Option<T> GetLocalSetting<T>(string name)
+        {
+            return Optional(_configurationRoot.GetValue<T>(name));
+        }
+
         public T GetRoamingSetting<T>(string name, T defaultValue)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Option<T> GetRoamingSetting<T>(string name)
         {
             throw new NotImplementedException();
         }

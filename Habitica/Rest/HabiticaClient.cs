@@ -17,12 +17,12 @@ namespace TIKSN.Habitica.Rest
 
         public async Task<TagsModel> CreateTagAsync(string name, CancellationToken cancellationToken)
         {
-            var request = new RestRequest("tags", Method.POST)
+            var request = new RestRequest("tags", Method.Post)
                 .AddJsonBody(new TagCreationModel { name = name });
 
             var restClient = _restClientFactory.Create();
 
-            var response = await restClient.ExecuteTaskAsync<TagsModel>(request, cancellationToken);
+            var response = await restClient.ExecuteAsync<TagsModel>(request, cancellationToken);
 
             EnsureSuccess(response, response.Data);
 
@@ -31,11 +31,11 @@ namespace TIKSN.Habitica.Rest
 
         public async Task<TagsModel> GetTagsAsync(CancellationToken cancellationToken)
         {
-            var request = new RestRequest("tags", Method.GET);
+            var request = new RestRequest("tags", Method.Get);
 
             var restClient = _restClientFactory.Create();
 
-            var response = await restClient.ExecuteTaskAsync<TagsModel>(request, cancellationToken);
+            var response = await restClient.ExecuteAsync<TagsModel>(request, cancellationToken);
 
             EnsureSuccess(response, response.Data);
 
@@ -49,11 +49,11 @@ namespace TIKSN.Habitica.Rest
 
         public async Task<UserModel> GetUserProfileAsync(CancellationToken cancellationToken)
         {
-            var request = new RestRequest("user?userFields=achievements,auth,profile,stats", Method.GET);
+            var request = new RestRequest("user?userFields=achievements,auth,profile,stats", Method.Get);
 
             var restClient = _restClientFactory.Create();
 
-            var response = await restClient.ExecuteTaskAsync<UserModel>(request, cancellationToken);
+            var response = await restClient.ExecuteAsync<UserModel>(request, cancellationToken);
 
             EnsureSuccess(response, response.Data);
 
@@ -62,11 +62,11 @@ namespace TIKSN.Habitica.Rest
 
         public async Task<UserTaskModel> GetUserTasksAsync(CancellationToken cancellationToken)
         {
-            var request = new RestRequest("tasks/user", Method.GET);
+            var request = new RestRequest("tasks/user", Method.Get);
 
             var restClient = _restClientFactory.Create();
 
-            var response = await restClient.ExecuteTaskAsync<UserTaskModel>(request, cancellationToken);
+            var response = await restClient.ExecuteAsync<UserTaskModel>(request, cancellationToken);
 
             EnsureSuccess(response, response.Data);
 
@@ -78,7 +78,7 @@ namespace TIKSN.Habitica.Rest
             return GetUserTasksAsync("todos", cancellationToken);
         }
 
-        private void EnsureSuccess(IRestResponse response, ISuccess success)
+        private void EnsureSuccess(RestResponse response, ISuccess success)
         {
             if (response.ErrorException != null)
                 throw response.ErrorException;
@@ -92,11 +92,11 @@ namespace TIKSN.Habitica.Rest
 
         private async Task<UserTaskModel> GetUserTasksAsync(string type, CancellationToken cancellationToken)
         {
-            var request = new RestRequest($"tasks/user?type={type}", Method.GET);
+            var request = new RestRequest($"tasks/user?type={type}", Method.Get);
 
             var restClient = _restClientFactory.Create();
 
-            var response = await restClient.ExecuteTaskAsync<UserTaskModel>(request, cancellationToken);
+            var response = await restClient.ExecuteAsync<UserTaskModel>(request, cancellationToken);
 
             EnsureSuccess(response, response.Data);
 

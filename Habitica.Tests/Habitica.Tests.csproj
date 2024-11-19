@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <UserSecretsId>TIKSN-Habitica-7324c6e6-792d-46c7-b432-c897b738e798</UserSecretsId>
     <IsPackable>false</IsPackable>
 

@@ -27,7 +27,7 @@ Task EstimateVersions {
 }
 
 Task Build -Depends Clean {
-    $solution = Resolve-Path "./Habitica.sln"
+    $solution = Resolve-Path "./Habitica.slnx"
     $solution = $solution.Path
     Exec { dotnet restore $solution }
     Exec { dotnet build $solution }

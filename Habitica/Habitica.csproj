@@ -15,7 +15,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.11" />
     <PackageReference Include="RestSharp" Version="114.0.0" />
-    <PackageReference Include="TIKSN-Framework" Version="5.7.3" />
+    <PackageReference Include="TIKSN-Framework" Version="5.7.4" />
   </ItemGroup>
 
 </Project>
